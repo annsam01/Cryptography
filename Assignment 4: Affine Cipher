@@ -1,0 +1,74 @@
+// Ann Sam
+// Assignment 4
+// Affine Cipher
+
+class Affine
+{
+    /**
+     * @return the ordinal value of a character c. 
+     * This function disregards case, but does preserve it.
+     * Ordinal values are a=0, b=1, ..., z=25
+     *
+     * Preconditions: only valid characters are a-z and A-Z
+     */
+    public static int charToOrd(char c) 
+    {
+    	int value;
+    	if (Character.isUpperCase(c)) 
+    		value = (int)c - (int)'A';
+    	else
+    		value = (int)c - (int)'a';
+    	assert value >= 0 : "Value too low";
+    	assert value < 26 : "Value too large";
+    	return value;
+    }
+    
+        /**
+     * @returns the lower-case character matching the ordinal value o
+     * Ordinal values are a=0, b=1, ..., z=25
+     *
+     * Preconditions: only valid values are 0-25 (inclusive)
+     */
+    public static char ordToChar(int o)
+    {
+    	if ( (o < 0) || (o > 25) ) throw new IllegalArgumentException();
+    	return (char)(o + (int)'a');
+    }
+    
+    public static String decrypt(String cipherText)
+    {
+        String plainText = " ";
+        // define ordinal values for cipherText and plainText
+        int ordinalCt, ordinalPt;
+        
+        // affine equation: y = Ax + B (mod 26)
+        // A = 3, B = -4
+        // for loop to turn cipherText ordinals to plainText 
+        for (int i = 0; i < cipherText.length(); i++)
+        {
+            // character @ each index
+            char letter = cipherText.charAt(i);
+            
+            // ciphertext character ordinal value
+            ordinalCt = charToOrd(letter);
+            
+            // perform affine decryption
+            ordinalPt = ((3 * ordinalCt) - 4) % 26;
+            
+            // plainText ordinals to plainText characters
+            char letterOrd = ordToChar(ordinalPt);
+            
+            // append ordinals to plainText
+            plainText = plainText + letterOrd;
+        }
+        
+        return plainText;
+    }
+    
+    public static void main(String[] args)
+    {
+        String cipherText= "edsgickxhuklzveqzvxwkzukcvuh";
+        
+        System.out.println("The plaintext was: " + decrypt(cipherText)); 
+    }
+}
