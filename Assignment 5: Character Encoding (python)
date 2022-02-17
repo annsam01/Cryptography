@@ -1,0 +1,62 @@
+# Ann Sam
+# Assignment 5: Character Encoding
+
+# remove punctuation from string
+def removePunctuations(string): 
+
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+  
+    for char in string: 
+        if char in punctuations: 
+            string = string.replace(char, "") 
+
+  # return punctuation-less string, with spaces also removed
+    return string.replace(" ", "") 
+
+cipher = " "
+plainString = "Hello, World!"
+shift = 4
+newText = removePunctuations(plainString).casefold()
+
+# shift +4
+for char in newText:
+
+    if char:
+        char_unicode = ord(char)
+        char_index = ord(char) - ord("a")
+
+        new_index = (char_index + shift) % 26
+        new_unicode = new_index + ord("a")
+        new_character = chr(new_unicode)
+
+        cipher = cipher + new_character
+
+    else:
+        cipher += char
+
+def caesarShift(plaintext, shift):
+    plaintext = plaintext.replace(" " ,"")
+    return ''.join(chr(ord(char) + shift) for char in plaintext)
+
+        
+print(plainString)
+print(newText)
+# print cipher in upper case
+print(cipher.upper())
+
+
+List = ["0x4c", "0x49", "0x50", "0x50", "0x53",
+        "0x41", "0x53", "0x56", "0x50", "0x48"]
+odd_hexValues = [] 
+even_hexValues = []
+
+for n in range(0, len(List),5):
+    
+    if n % 2: 
+        odd_hexValues.append(List[n]) 
+    else : 
+        even_hexValues.append(List[n])
+
+    print(List[n:n+5])
+  
+newList =  even_hexValues + odd_hexValues
