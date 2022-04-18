@@ -1,0 +1,83 @@
+// Ann Sam
+// Assignment 12: Discrete Logs
+// Write a Java program using the BigInteger
+// class that determines the number of bits in the prime 𝑝,
+// AND that simulates how Alice and Bob each establish their shared key.
+// Collaborated with John Perez
+
+import java.math.BigInteger; 
+import java.util.Random; 
+import java.util.Scanner;
+
+public class DiscreteLogs {  
+    public static void main(String[] args) 
+    { 
+      // initialize prime p, Alice's private key, and Bob's public Key
+      String p = "00fb2e8473c499d184d806e6b5df7f621b";
+      String privKeyA = "2ca50afea541f0d90f68e0efc85c2686";
+      String pubKeyB = "6e146d3b2149f41450713e5c83d21e70";
+      // new biginteger a = 2
+      BigInteger a = new BigInteger("2");
+
+      // create new BigInteger prime p
+      BigInteger bigP = new BigInteger (p, 16);
+      // get num of bits in prime p
+      int pBits = getBits(bigP);
+
+      // convert Alice and Bob's keys to bigInt
+      BigInteger bigA = aToBigInt(privKeyA, 16);
+      BigInteger bigB = bToBigInt(pubKeyB,16);
+
+      // diffiehellman alice, convert back to hex and print
+      BigInteger sharedA = diffieHellmanA(a, bigA, bigB, bigP);
+      String sKeyA = sharedA.toString(16);
+      System.out.println("Shared key A: " + sKeyA);
+
+      //BigInteger sharedB = aliceMP.modPow(bigB, bigP);
+      BigInteger sharedB = diffieHellmanB(a, bigA, bigB, bigP);
+      String sKeyB = sharedB.toString(16);
+      System.out.println("Shared key B: " + sKeyB);
+      
+    } 
+    
+    static int getBits(BigInteger bigP)
+    {
+        int pBits = bigP.bitLength();
+        System.out.println("Bit count of p: " + pBits);
+        
+        return pBits;
+    }
+    
+    static BigInteger aToBigInt(String privKeyA, int radix)
+    {
+        BigInteger bigA = new BigInteger(privKeyA, 16);
+        
+        return bigA;
+    }
+    
+    static BigInteger bToBigInt(String pubKeyB, int radix)
+    {
+        BigInteger bigB = new BigInteger(pubKeyB, 16);
+        
+        return bigB;
+    }
+    
+    static BigInteger diffieHellmanA(BigInteger a, BigInteger bigA, BigInteger bigB, BigInteger bigP)
+    {
+        BigInteger aliceMP = a.modPow(bigA, bigP);
+        BigInteger bobMP = a.modPow(bigB, bigP);
+        BigInteger sharedA = bobMP.modPow(bigA, bigP);
+        
+        return sharedA;
+    }
+    
+    static BigInteger diffieHellmanB(BigInteger a, BigInteger bigA, BigInteger bigB, BigInteger bigP)
+    {
+        BigInteger aliceMP = a.modPow(bigA, bigP);
+        BigInteger bobMP = a.modPow(bigB, bigP);
+                
+        BigInteger sharedA = aliceMP.modPow(bigB, bigP);
+        
+        return sharedA;
+    }
+}
