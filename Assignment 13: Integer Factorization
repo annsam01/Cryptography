@@ -1,0 +1,25 @@
+# Ann Sam
+# Assignment 13: Integer factorization
+# Collaborated with John Perez
+# pycrypto info from: https://pycryptodome.readthedocs.io/en/latest/src/random/random.html
+# may need to be executed more than once to give proper results
+
+import Crypto.Util.number
+import time
+
+num_bits = [10, 11, 12, 13]
+
+# loop through num_bits
+for i in bits:
+    
+    # get two prime numbers of n bits
+    p = Crypto.Util.number.getPrime(i, randfunc = Crypto.Random.get_random_bytes)
+    q = Crypto.Util.number.getPrime(i, randfunc = Crypto.Random.get_random_bytes)
+
+    # rsa ; multiply two primes to get n
+    n = p * q
+    
+    #print bits, time taken, and both primes
+    start = time.time()
+    duration = str(round(time.time() - start, 5))
+    print(str(i), "bit primes. Duration = ", duration + "s: n =", n, "=> p =", p, ", q =", q)
