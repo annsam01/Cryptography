@@ -1,3 +1,9 @@
+// Ann Sam
+// Digital Signatures and Hashing
+// Program determines which key pair was used to sign which file contained
+// in the Digital Signatures zipfile.
+
+
 import java.io.*;
 import java.security.*;
 import java.security.interfaces.*;
