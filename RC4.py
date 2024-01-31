@@ -1,5 +1,6 @@
 # Ann Sam
 # RC4
+# Implement RC4 based on Wiki page: https://en.wikipedia.org/wiki/RC4
 
 MOD = 256
     
