@@ -1,6 +1,5 @@
 // Ann Sam
-// CSC 381-001
-// Assignment 2: Decrypt Shift Cipher
+// Decrypt Shift Cipher
 // create a program that tries all possible shifts and prints them all out to determine the correct shift and recover the plaintext from the given
 // ciphertext
 
