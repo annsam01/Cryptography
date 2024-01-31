@@ -1,5 +1,5 @@
 # Ann Sam
-# Assignment 13: Integer factorization
+# Integer factorization using naive method
 # Collaborated with John Perez
 # pycrypto info from: https://pycryptodome.readthedocs.io/en/latest/src/random/random.html
 # may need to be executed more than once to give proper results
