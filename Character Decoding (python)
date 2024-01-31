@@ -1,5 +1,7 @@
 # Ann Sam
-# Assignment 6: Character Decoding
+# Character Decoding
+# A program that decrypts the output created by the
+# character encryption program by reversing the steps. 
 
 # originalList = [0x4c(0), 0x49(1), 0x50(2), 0x50(3), 0x53(4),
 # 0x41(5), 0x53(6), 0x56(7), 0x50(8), 0x48(9)]
