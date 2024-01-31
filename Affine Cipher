@@ -1,6 +1,8 @@
 // Ann Sam
-// Assignment 4
 // Affine Cipher
+// Given ciphertext: edsgickxhuklzveqzvxwkzukcvuh
+// Manually solve the parameters for the affine cipher
+// and write a program that decrypts the ciphertext
 
 class Affine
 {
