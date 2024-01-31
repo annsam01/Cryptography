@@ -1,7 +1,9 @@
 // Ann Sam
-// CSC 381-001
-// Assignment 3: Frequency Historgram
-// updated for assignment 3
+// Shift Cipher Frequency Histogram
+// 1. A program that prints a histogram of the frequencies of the characters that are present in the ciphertext.
+// 2. Using frequency analysis, manually decide what the most likely decryption shift is. Once you have done that,
+// validate your answer by updating the program written in Decrypt Shift Cipher. 
+// 3. A driver program that first calls the frequency analysis program and then calls the decryption program.
 
 
 class ShiftCipher
