@@ -1,0 +1,25 @@
+# Ann Sam
+# RSA
+# Paul Revere's ciphertext: 273095689186
+# public key (decimal): 
+#    n = 712446816787
+#    e = 6551
+# Write a program that prints out what the plaintext was. 
+# You may assume a text coding scheme in which 'a' = 01, 'b'=02, etc.
+
+n = 712446816787
+e = 6551
+cipherText = 273095689186
+
+byLand = "151405" #one
+bySea = "202315" #two
+
+# rsa: raise message to given exponent, e, and perform given mod
+message1 = pow(int(byLand),  e) % n
+message2 = pow(int(bySea), e) % n
+
+# check that the message is equal to the ciphertext
+if message1 == cipherText:
+    print("The plaintext was: one")
+else:
+    print("The plaintext was: two")
