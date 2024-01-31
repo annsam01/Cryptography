@@ -1,5 +1,5 @@
 // Ann Sam
-// Assignment 12: Discrete Logs
+// Discrete Logs
 // Write a Java program using the BigInteger
 // class that determines the number of bits in the prime 𝑝,
 // AND that simulates how Alice and Bob each establish their shared key.
