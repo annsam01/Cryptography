@@ -1,7 +1,7 @@
 // Ann Sam
 // Decrypt Shift Cipher
-// create a program that tries all possible shifts and prints them all out to determine the correct shift and recover the plaintext from the given
-// ciphertext
+// create a program that tries all possible shifts and prints them all out to determine
+// the correct shift and recover the plaintext from the given ciphertext
 
 
 class ShiftCipher
